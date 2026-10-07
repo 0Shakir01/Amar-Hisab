@@ -1,0 +1,6 @@
+{
+  "name": "Amar Hisab",
+  "description": "Smart personal finance and expense tracker (আমার হিসাব) with accounts, budgets, BDT currency, and bilingual Bangla/English support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

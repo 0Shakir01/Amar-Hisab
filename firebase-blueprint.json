@@ -1,0 +1,135 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile and sync settings",
+      "type": "object",
+      "properties": {
+        "ownerUid": { "type": "string" },
+        "createdAt": { "type": "integer" },
+        "updatedAt": { "type": "integer" },
+        "isDeleted": { "type": "boolean" },
+        "syncStatus": { "type": "string" }
+      },
+      "required": ["ownerUid"]
+    },
+    "Account": {
+      "title": "Account",
+      "description": "Financial cash or bank account",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "ownerUid": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "area": { "type": "string" },
+        "openingBalancePaisa": { "type": "integer" },
+        "isActive": { "type": "boolean" },
+        "colorHex": { "type": "string" },
+        "createdAt": { "type": "integer" },
+        "updatedAt": { "type": "integer" },
+        "isDeleted": { "type": "boolean" },
+        "syncStatus": { "type": "string" }
+      },
+      "required": ["id", "ownerUid", "name"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Income, expense, or transfer transaction",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "ownerUid": { "type": "string" },
+        "type": { "type": "string" },
+        "amountPaisa": { "type": "integer" },
+        "accountId": { "type": "integer" },
+        "area": { "type": "string" },
+        "category": { "type": "string" },
+        "createdAt": { "type": "integer" },
+        "updatedAt": { "type": "integer" },
+        "isDeleted": { "type": "boolean" },
+        "syncStatus": { "type": "string" }
+      },
+      "required": ["id", "ownerUid", "type", "amountPaisa"]
+    },
+    "Debt": {
+      "title": "Debt",
+      "description": "Debt or receivable commitment",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "ownerUid": { "type": "string" },
+        "personName": { "type": "string" },
+        "debtType": { "type": "string" },
+        "area": { "type": "string" },
+        "amountPaisa": { "type": "integer" },
+        "createdAt": { "type": "integer" },
+        "updatedAt": { "type": "integer" },
+        "isDeleted": { "type": "boolean" },
+        "syncStatus": { "type": "string" }
+      },
+      "required": ["id", "ownerUid", "personName", "amountPaisa"]
+    },
+    "Asset": {
+      "title": "Asset",
+      "description": "Asset or property holding",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "ownerUid": { "type": "string" },
+        "name": { "type": "string" },
+        "assetType": { "type": "string" },
+        "totalPurchaseValuePaisa": { "type": "integer" },
+        "paidAmountPaisa": { "type": "integer" },
+        "createdAt": { "type": "integer" },
+        "updatedAt": { "type": "integer" },
+        "isDeleted": { "type": "boolean" },
+        "syncStatus": { "type": "string" }
+      },
+      "required": ["id", "ownerUid", "name"]
+    },
+    "Stock": {
+      "title": "Stock",
+      "description": "Business inventory stock item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "ownerUid": { "type": "string" },
+        "productName": { "type": "string" },
+        "purchaseCostPerUnitPaisa": { "type": "integer" },
+        "purchasedQuantity": { "type": "number" },
+        "createdAt": { "type": "integer" },
+        "updatedAt": { "type": "integer" },
+        "isDeleted": { "type": "boolean" },
+        "syncStatus": { "type": "string" }
+      },
+      "required": ["id", "ownerUid", "productName"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/settings/{docId}": {
+      "schema": "UserProfile",
+      "description": "User profile settings"
+    },
+    "/users/{userId}/accounts/{accountId}": {
+      "schema": "Account",
+      "description": "Accounts"
+    },
+    "/users/{userId}/transactions/{txId}": {
+      "schema": "Transaction",
+      "description": "Transactions"
+    },
+    "/users/{userId}/debts/{debtId}": {
+      "schema": "Debt",
+      "description": "Debts"
+    },
+    "/users/{userId}/assets/{assetId}": {
+      "schema": "Asset",
+      "description": "Assets"
+    },
+    "/users/{userId}/stock/{stockId}": {
+      "schema": "Stock",
+      "description": "Stock"
+    }
+  }
+}
